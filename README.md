@@ -2,6 +2,8 @@
 
 **Type the sound. Get the script.** A phonetic keyboard and transliterator for Indian scripts. Write a word the way it sounds in plain English letters — `namaste`, `kannaDa` — and keymitra composes the real aksharas as you type. Tap an on-screen grid for any letter, drop in a common word, copy in one tap. 100% client-side, zero dependencies, works fully offline.
 
+![keymitra](./preview.png)
+
 ## Why
 
 Most Indian scripts have no comfortable input method on a laptop, and switching a phone to a native keyboard for one word is friction. But nearly everyone already knows how their language *sounds* — and can spell it in Latin letters. keymitra turns that instinct into correct Unicode.
