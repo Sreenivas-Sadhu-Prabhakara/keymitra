@@ -48,7 +48,7 @@
     --sunk:     #16172A;
     --ink:      #ECEAF4;
     --ink-soft: #ADA9C4;
-    --ink-faint:#8681A0;
+    --ink-faint:#948FAE;  /* AA on card (#21233D) 4.95:1 — was #8681A0 (failed at 4.12:1) */
     --rule:     #2E3050;
     --rule2:    #282A46;
 
