@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+  <title>keymitra — type Indian scripts by sound (Devanagari, Kannada, more)</title>
+  <meta name="description" content="A phonetic keyboard and transliterator for Indian scripts. Type the sound in plain English letters — namaste, kannaDa — and watch it become नमस्ते or ಕನ್ನಡ live. Tap the akshara grid, use word chips, copy in one tap. Fully offline.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://sreenivas-sadhu-prabhakara.github.io/keymitra/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Sreenivas Sadhu Prabhakara">
+  <meta name="keywords" content="phonetic keyboard, transliteration, type in hindi, type in kannada, devanagari keyboard, kannada keyboard, ITRANS, romanized to devanagari, english to hindi typing, indian language input, offline transliterator, akshara">
+  <meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191A2E" media="(prefers-color-scheme: dark)">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="keymitra">
+  <meta property="og:title" content="keymitra — type Indian scripts by sound">
+  <meta property="og:description" content="Type the sound in plain English letters and watch it become Devanagari or Kannada live. Tap the akshara grid, use word chips, copy in one tap. Private and fully offline.">
+  <meta property="og:url" content="https://sreenivas-sadhu-prabhakara.github.io/keymitra/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://sreenivas-sadhu-prabhakara.github.io/keymitra/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="keymitra — namaste becomes नमस्ते as you type by sound">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="keymitra — type Indian scripts by sound">
+  <meta name="twitter:description" content="Type the sound in plain English letters and watch it become Devanagari or Kannada live. Tap the akshara grid, use word chips, copy in one tap. Private and fully offline.">
+  <meta name="twitter:image" content="https://sreenivas-sadhu-prabhakara.github.io/keymitra/og-image.png">
+  <meta name="twitter:image:alt" content="keymitra — namaste becomes नमस्ते as you type by sound">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Structured data (data block; not affected by script-src) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "keymitra",
+    "description": "A client-side phonetic keyboard and transliterator for Indian scripts. Type the sound in Latin letters and see it become Devanagari or Kannada live, tap an on-screen akshara grid, use common-word chips, and copy in one tap. Private, offline, no accounts.",
+    "url": "https://sreenivas-sadhu-prabhakara.github.io/keymitra/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any (modern web browser)",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled and the target script's font installed.",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Person", "name": "Sreenivas Sadhu Prabhakara" },
+    "softwareVersion": "0.1.0",
+    "featureList": [
+      "Phonetic ITRANS-style transliteration of Latin input to Indian scripts",
+      "Live preview: the script updates as you type the sound",
+      "Longest-match tokenising for digraphs like kh, ch, sh, aa, ai",
+      "On-screen akshara grid for direct glyph insertion",
+      "Common-word suggestion chips per script",
+      "One-tap copy to the clipboard",
+      "Devanagari and Kannada fully covered; Tamil and Telugu marked beta",
+      "Runs 100% offline in your browser"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I type Hindi or Kannada by sound in keymitra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pick a script, then type the word the way it sounds using plain English letters. namaste becomes नमस्ते and kannaDa becomes ಕನ್ನಡ. keymitra reads your letters left to right with longest-match, so digraphs like kh, ch, sh, aa and ai are understood as single sounds, and it joins consonants and vowels into the correct akshara."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I write capital or retroflex sounds like T, D, N and long vowels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "keymitra uses an ITRANS-style scheme. Capital T, D, N, S give the retroflex ट ड ण ष; double a vowel for its long form (aa, ii, uu). Use M or .n for anusvara, H for visarga, and .h to force a bare consonant (halant) at the end of a word. A cheat-sheet of every mapping is built into the page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do some letters show as empty boxes or tofu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "keymitra outputs real Unicode text but does not ship any fonts, so your device must have a font for the script installed to render it. Most phones and computers include Devanagari and Kannada. If you see boxes, the text is still correct — copying and pasting it into an app with the right font will display it properly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my typing private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Completely. keymitra runs entirely in your browser and makes no network requests at all. A strict Content-Security-Policy sets connect-src to none, so nothing you type can be sent anywhere. Your last text is remembered only in this device's local storage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Indian scripts does keymitra support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Devanagari (Hindi, Marathi, Sanskrit) and Kannada are fully covered and verified against exact Unicode. Tamil and Telugu are included and labelled beta: they cover everyday words but Tamil in particular collapses some Sanskrit distinctions its script does not encode, so check important text before relying on it."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#composer">Skip to the keyboard</a>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero__inner">
+      <a class="brand" href="#top" aria-label="keymitra home">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="1" y="1" width="30" height="30" rx="9" class="brand__bg"/>
+          <line x1="9" y1="10.5" x2="23" y2="10.5" class="brand__bar"/>
+          <path d="M11 10.5 v6.5 a4 4 0 0 0 8 0 v-6.5" class="brand__stroke"/>
+          <circle cx="22.5" cy="21.5" r="1.7" class="brand__dot"/>
+        </svg>
+        <span class="brand__word">keymitra</span>
+      </a>
+
+      <p class="eyebrow">Phonetic keyboard &middot; Indian scripts &middot; offline</p>
+      <h1 class="hero__title">Type the <span class="hero__accent">sound</span>. Get the script.</h1>
+      <p class="hero__lede">
+        Write an Indian word the way it sounds in plain English letters&mdash;<span class="mono">namaste</span>,
+        <span class="mono">kannaDa</span>&mdash;and keymitra composes the real aksharas as you type. Tap the grid for any
+        letter, drop in a common word, copy in one tap. No app, no account, nothing leaves your device.
+      </p>
+
+      <!-- Signature: the live transform strip -->
+      <div class="transform" aria-hidden="true">
+        <span class="transform__latin">namaste</span>
+        <span class="transform__arrow">
+          <svg viewBox="0 0 40 16" width="40" height="16"><path d="M2 8 h32 M28 3 l6 5 -6 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="transform__script" lang="hi">नमस्ते</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="workspace">
+    <!-- ============ SCRIPT PICKER ============ -->
+    <section class="scriptbar" aria-label="Choose a script">
+      <div class="scriptbar__inner">
+        <span class="scriptbar__label" id="scriptLabel">Script</span>
+        <div class="scripts" role="radiogroup" aria-labelledby="scriptLabel" id="scriptTabs"></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- ============ LEFT: COMPOSER ============ -->
+      <div class="col col--main">
+        <section class="card card--compose" aria-labelledby="composeHeading" id="composer">
+          <div class="card__head">
+            <h2 class="card__title" id="composeHeading">Compose</h2>
+            <span class="card__scriptname" id="activeScriptName">Devanagari</span>
+          </div>
+
+          <!-- Live script preview — the hero of the tool -->
+          <div class="preview" id="preview" lang="hi" aria-live="polite" aria-label="Composed script preview" tabindex="0"></div>
+          <p class="preview__empty" id="previewEmpty">Type below and your script appears here.</p>
+
+          <label class="sr-only" for="input">Type a word by its sound in English letters</label>
+          <textarea id="input" class="composer__input mono" rows="3"
+            placeholder="Type by sound…  e.g. namaste, dhanyavaad, bhaarat"
+            autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+
+          <div class="composer__bar">
+            <p class="composer__hint" id="fontHint"></p>
+            <div class="composer__actions">
+              <button type="button" class="btn btn--quiet btn--sm" id="clearBtn">Clear</button>
+              <button type="button" class="btn btn--primary btn--sm" id="copyBtn">Copy script</button>
+            </div>
+          </div>
+          <p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
+        </section>
+
+        <!-- Common words -->
+        <section class="card" aria-labelledby="wordsHeading">
+          <div class="card__head">
+            <h2 class="card__title" id="wordsHeading">Common words</h2>
+            <span class="card__hint-inline">tap to insert</span>
+          </div>
+          <div class="chips" id="wordChips" role="list"></div>
+        </section>
+
+        <!-- Akshara grid -->
+        <section class="card" aria-labelledby="gridHeading">
+          <div class="card__head">
+            <h2 class="card__title" id="gridHeading">Akshara grid</h2>
+            <span class="card__hint-inline">tap a letter to insert its script</span>
+          </div>
+          <div class="akshara" id="aksharaGrid"></div>
+          <p class="hint">Vowels insert on their own; consonants insert with the inherent short <span class="mono">a</span>. Combine sounds by typing in the box above.</p>
+        </section>
+      </div>
+
+      <!-- ============ RIGHT: CHEAT SHEET ============ -->
+      <aside class="col col--ref">
+        <section class="card card--ref" aria-labelledby="cheatHeading">
+          <div class="card__head">
+            <h2 class="card__title" id="cheatHeading">How to type the sounds</h2>
+          </div>
+          <p class="ref__intro">keymitra reads your letters left to right, always taking the <strong>longest</strong> match first, so <span class="mono">kh</span>, <span class="mono">ch</span>, <span class="mono">sh</span>, <span class="mono">aa</span> and <span class="mono">ai</span> are read as single sounds.</p>
+
+          <h3 class="ref__sub">Vowels</h3>
+          <ul class="ref__rows" id="refVowels"></ul>
+
+          <h3 class="ref__sub">Consonant tips</h3>
+          <ul class="ref__list">
+            <li><span class="mono">kh gh ch chh jh th dh ph bh</span> — aspirated pairs.</li>
+            <li><span class="mono">T Th D Dh N S</span> — capitals give the retroflex ट ठ ड ढ ण ष.</li>
+            <li><span class="mono">sh</span> = श / ಶ, <span class="mono">Sh</span> = ष / ಷ, <span class="mono">~n ~N</span> = ञ ङ.</li>
+            <li>Two consonants in a row join as a cluster: <span class="mono">satya</span> → सत्य.</li>
+          </ul>
+
+          <h3 class="ref__sub">Signs &amp; marks</h3>
+          <ul class="ref__list" id="refMarks"></ul>
+
+          <h3 class="ref__sub">Digits</h3>
+          <p class="ref__digits" id="refDigits"></p>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="foot__inner">
+      <p class="foot__disclaimer">
+        <strong>A typing aid, not a certified transliteration standard.</strong> keymitra follows a practical
+        ITRANS-style scheme; Devanagari and Kannada are verified against exact Unicode, while Tamil and Telugu are
+        marked <em>beta</em> and can collapse sounds their scripts do not encode. Rendering needs the script's font
+        on your device&mdash;keymitra ships none. Always proofread important text.
+      </p>
+      <p class="foot__meta">
+        <span>Runs entirely in your browser — nothing you enter leaves this device.</span><span class="foot__dot">&middot;</span>
+        <span>No network, no accounts</span><span class="foot__dot">&middot;</span>
+        <span>MIT&nbsp;License</span><span class="foot__dot">&middot;</span>
+        <span>&copy; 2026 Sreenivas&nbsp;Sadhu&nbsp;Prabhakara</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

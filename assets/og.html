@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --paper:  #FAF7F2;
+    --paper2: #FFFFFF;
+    --ink:    #20223B;
+    --ink-soft:#55506B;
+    --ink-faint:#6E6982;
+    --rule:   #E4DDD2;
+    --accent: #B14A0E;
+    --marigold:#E9812E;
+    --accent-wash:#F7E7D6;
+    --accent-line:#EED9C2;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    --indic: "Noto Sans Devanagari", "Nirmala UI", "Kohinoor Devanagari", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background:
+      radial-gradient(1000px 560px at 88% -12%, var(--accent-wash), transparent 58%),
+      linear-gradient(180deg, var(--paper2), var(--paper) 82%);
+    font-family: var(--sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    position: absolute; inset: 0;
+    padding: 74px 84px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  .top { display: flex; align-items: center; gap: 18px; }
+  .top svg { width: 60px; height: 60px; }
+  .top .word { font-size: 44px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); }
+  .top .tag {
+    margin-left: auto;
+    font-size: 20px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .mid { display: flex; flex-direction: column; gap: 34px; }
+  h1 {
+    font-size: 62px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+    color: var(--ink); max-width: 20ch;
+  }
+  h1 .accent { color: var(--accent); }
+
+  /* the transform row: latin -> script, three examples stacked into a card */
+  .demo {
+    display: inline-flex; align-items: stretch; gap: 0;
+    background: var(--paper2);
+    border: 1px solid var(--accent-line);
+    border-radius: 22px;
+    box-shadow: 0 30px 60px -30px rgba(32,34,59,0.4);
+    overflow: hidden;
+    align-self: flex-start;
+  }
+  .demo .rowset { display: flex; flex-direction: column; }
+  .row {
+    display: flex; align-items: center; gap: 30px;
+    padding: 22px 34px;
+  }
+  .row + .row { border-top: 1px solid var(--rule); }
+  .row .latin {
+    font-family: var(--mono); font-size: 34px; font-weight: 600;
+    color: var(--ink-soft); min-width: 260px; letter-spacing: 0.01em;
+  }
+  .row .arrow { color: var(--marigold); display: inline-flex; }
+  .row .script {
+    font-family: var(--indic); font-size: 46px; font-weight: 600;
+    color: var(--accent); line-height: 1;
+  }
+
+  .foot {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 25px; font-weight: 500; color: var(--ink-soft);
+  }
+  .foot .dot { color: var(--marigold); }
+  .foot .strong { color: var(--ink); font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="9" fill="#20223B"/>
+        <line x1="9" y1="10.5" x2="23" y2="10.5" stroke="#E9812E" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M11 10.5 v6.5 a4 4 0 0 0 8 0 v-6.5" fill="none" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="22.5" cy="21.5" r="1.7" fill="#E9812E"/>
+      </svg>
+      <span class="word">keymitra</span>
+      <span class="tag">Phonetic &middot; Offline</span>
+    </div>
+
+    <div class="mid">
+      <h1>Type the <span class="accent">sound</span>.<br>Get the script.</h1>
+      <div class="demo">
+        <div class="rowset">
+          <div class="row">
+            <span class="latin">namaste</span>
+            <span class="arrow"><svg viewBox="0 0 44 18" width="44" height="18"><path d="M2 9 h34 M30 3 l7 6 -7 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="script">नमस्ते</span>
+          </div>
+          <div class="row">
+            <span class="latin">kannaDa</span>
+            <span class="arrow"><svg viewBox="0 0 44 18" width="44" height="18"><path d="M2 9 h34 M30 3 l7 6 -7 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="script" style="font-family:'Noto Sans Kannada','Tunga',system-ui,sans-serif">ಕನ್ನಡ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="strong">Devanagari &amp; Kannada</span>
+      <span class="dot">&middot;</span>
+      <span>tap the akshara grid</span>
+      <span class="dot">&middot;</span>
+      <span>copy in one tap</span>
+    </div>
+  </div>
+</body>
+</html>
